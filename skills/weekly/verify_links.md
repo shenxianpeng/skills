@@ -1,6 +1,10 @@
+---
+name: verify-links
+description: 批量验证 URL 链接的可访问性，检测 404 错误、重定向、超时等问题，确保周刊内容中所有链接有效。Use when validating URLs, checking for broken links, or ensuring link quality.
+---
+
 # 验证链接可访问性
 
-## 描述
 验证一组 URL 是否可访问，确保周刊中的所有链接都是有效的。
 
 ## 输入

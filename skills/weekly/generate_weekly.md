@@ -1,6 +1,10 @@
+---
+name: generate-weekly
+description: 自动生成完整的攻城狮周刊，包括搜索技术内容、验证 GitHub 项目、验证链接、下载图片、生成 Markdown 文件等完整流程。Use when user asks to generate a new weekly newsletter issue.
+---
+
 # 生成攻城狮周刊
 
-## 描述
 自动生成《攻城狮周刊》，涵盖 DevOps、AI 工程化、CI/CD 和 Build 领域的最新技术动态。
 
 ## 输入

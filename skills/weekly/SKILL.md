@@ -1,3 +1,11 @@
+---
+name: weekly
+description: 自动化生成《攻城狮周刊》的完整工具集，涵盖技术内容搜索、GitHub 项目信息获取、链接验证、图片下载等。适用于生成 DevOps、AI、CI/CD 和 Build 领域的技术周刊。Use when generating tech weekly newsletter, searching DevOps/AI content, or managing weekly publication workflow.
+metadata:
+  author: shenxianpeng
+  version: "1.0"
+---
+
 # 攻城狮周刊生成 Skills
 
 这是一套用于自动化生成《攻城狮周刊》的 GitHub Copilot Skills 集合。

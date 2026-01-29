@@ -1,6 +1,6 @@
 # Copilot Skills 使用指南
 
-这个目录包含了用于自动化生成博客内容的 GitHub Copilot Skills。
+这个目录包含了用于自动化生成博客内容的 GitHub Copilot Skills，遵循 [Agent Skills 规范](https://agentskills.io/specification)。
 
 ## 📁 目录结构
 

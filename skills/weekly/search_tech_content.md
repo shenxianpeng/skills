@@ -1,6 +1,10 @@
+---
+name: search-tech-content
+description: 搜索 DevOps、AI、CI/CD 和 Build 领域的技术内容，包括新闻、博客文章、工具和开源项目。Use when searching for tech news, blog articles, tools, or GitHub projects for weekly newsletter.
+---
+
 # 搜索技术内容
 
-## 描述
 搜索 DevOps、AI 工程化、CI/CD 和 Build 领域的最新技术内容，包括博客文章、新闻、开源项目等。
 
 ## 输入

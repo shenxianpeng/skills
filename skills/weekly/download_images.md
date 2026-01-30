@@ -1,6 +1,9 @@
 ---
 name: download-images
-description: 为周刊各章节下载和管理图片，包括封面图、新闻配图、工具截图等。支持从官方网站、GitHub、Unsplash 等来源下载。Use when downloading images for newsletter sections or managing visual assets.
+description: Downloads and manages images for weekly newsletter sections including cover images, news illustrations, and tool screenshots from official websites, GitHub, and Unsplash. Use when the user asks to download images for newsletter, add visual assets to weekly content, or manage newsletter graphics.
+metadata:
+  author: shenxianpeng
+  version: "1.1"
 ---
 
 # 下载和管理周刊图片

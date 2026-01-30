@@ -1,6 +1,9 @@
 ---
 name: verify-links
-description: 批量验证 URL 链接的可访问性，检测 404 错误、重定向、超时等问题，确保周刊内容中所有链接有效。Use when validating URLs, checking for broken links, or ensuring link quality.
+description: Batch validates URL accessibility by detecting 404 errors, redirects, timeouts, and other issues to ensure all newsletter links are valid and working. Use when the user asks to check link validity, verify URLs, detect broken links, or ensure content accessibility.
+metadata:
+  author: shenxianpeng
+  version: "1.1"
 ---
 
 # 验证链接可访问性

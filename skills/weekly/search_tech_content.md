@@ -1,6 +1,9 @@
 ---
 name: search-tech-content
-description: 搜索 DevOps、AI、CI/CD 和 Build 领域的技术内容，包括新闻、博客文章、工具和开源项目。Use when searching for tech news, blog articles, tools, or GitHub projects for weekly newsletter.
+description: Searches for technical content in DevOps, AI, CI/CD, and Build domains including news, blog articles, tools, and open source projects from authoritative sources. Use when the user asks to find tech news, search for DevOps articles, discover AI tools, or gather content for a weekly newsletter.
+metadata:
+  author: shenxianpeng
+  version: "1.1"
 ---
 
 # 搜索技术内容

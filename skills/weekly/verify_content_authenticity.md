@@ -1,6 +1,9 @@
 ---
 name: verify-content-authenticity
-description: 验证周刊内容的真实性，确保每条新闻、博客、项目等内容都是真实存在的，且发布时间在指定的周期范围内。Use when validating authenticity of tech news, blog posts, GitHub projects, or any content for weekly newsletter.
+description: Verifies the authenticity of newsletter content by checking publication dates, link accessibility, and source credibility. Ensures all news, blog posts, and projects are real and published within the specified time range. Use when the user needs to validate content authenticity, verify publication dates, or ensure newsletter content quality.
+metadata:
+  author: shenxianpeng
+  version: "1.1"
 ---
 
 # 验证内容真实性

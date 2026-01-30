@@ -1,6 +1,6 @@
 ---
 name: weekly
-description: 自动化生成《攻城狮周刊》的完整工具集，涵盖技术内容搜索、GitHub 项目信息获取、链接验证、图片下载等。关注 AI、DevOps、开源、科技巨头动态等领域。Use when generating tech weekly newsletter, searching AI/DevOps/open-source content, or managing weekly publication workflow.
+description: A comprehensive toolkit for automating tech weekly newsletter generation, including content searching, GitHub project verification, link validation, and image management. Covers AI, DevOps, open-source, and tech industry updates. Use when the user asks to generate a weekly newsletter, search for tech content, verify project information, or manage newsletter workflow.
 metadata:
   author: shenxianpeng
   version: "1.1"

@@ -1,6 +1,9 @@
 ---
 name: fetch-github-info
-description: 获取 GitHub 开源项目的详细信息，包括真实的 Star 数、Fork 数、项目描述、主要语言、最后更新时间等。Use when verifying GitHub repository information or getting accurate project stats.
+description: Fetches detailed GitHub repository information including accurate star count, fork count, description, primary language, and last update time. Use when the user mentions GitHub projects, needs to verify repository stats, or requires accurate project information for the weekly newsletter.
+metadata:
+  author: shenxianpeng
+  version: "1.1"
 ---
 
 # 获取 GitHub 项目信息

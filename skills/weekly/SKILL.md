@@ -100,7 +100,38 @@ metadata:
 
 ---
 
-### 5. [download_images.md](download_images.md) - 下载和管理图片
+### 5. [verify_content_authenticity.md](verify_content_authenticity.md) - 验证内容真实性 ⭐ 新增
+
+**用途**：验证周刊内容的真实性，确保每条内容都是真实存在的，且发布时间在指定的周期范围内
+
+**输入**：
+- `content_list`: 待验证的内容列表
+- `start_date`: 周刊起始日期（YYYY-MM-DD）
+- `end_date`: 周刊结束日期（YYYY-MM-DD）
+- `content_type`: 内容类型（news/blog/tool/project）
+
+**使用示例**：
+```
+@workspace #file:weekly/verify_content_authenticity.md 验证内容真实性：
+- 周刊范围：2026-01-20 ~ 2026-01-26
+- 内容列表：[待验证的内容]
+```
+
+**验证维度**：
+- ✅ 访问验证：链接是否可访问（HTTP 200）
+- ✅ 时间验证：发布日期是否在周刊时间范围内
+- ✅ 内容验证：标题与实际页面内容是否一致
+- ✅ 来源验证：来源是否可靠（官方博客/知名媒体）
+
+**输出**：
+- ✅ 通过验证的内容列表（包含验证证据）
+- ⚠️ 需要注意的内容（包含警告原因）
+- ❌ 未通过验证的内容（已移除，包含移除原因）
+- 📊 验证统计和报告
+
+---
+
+### 6. [download_images.md](download_images.md) - 下载和管理图片
 
 **用途**：为周刊下载相关图片，增强可读性和吸引力
 
@@ -130,6 +161,7 @@ metadata:
 
 3. **验证和丰富数据**
    - 调用 `fetch_github_info.md` 获取 GitHub 项目真实数据
+   - 调用 `verify_content_authenticity.md` ⭐ 验证内容真实性和时效性
    - 调用 `verify_links.md` 验证所有链接有效性
 
 4. **下载图片**
@@ -181,19 +213,23 @@ output/weekly/{YEAR}/weekly-{week_number}/
 
 ## ⚠️ 注意事项
 
-1. **真实性第一**：所有内容基于真实搜索，禁止编造数据
-2. **质量优于数量**：只推荐真正有价值的内容
-3. **及时验证**：定期验证链接有效性，删除失效内容
-4. **图片版权**：优先使用官方图片或开源图库（Unsplash、Pexels）
-5. **年份自动识别**：会根据 `start_date` 或 `end_date` 自动确定年份路径
+1. **真实性第一** ⭐：所有内容必须经过真实性验证，禁止编造数据或使用时间范围外的内容
+2. **发布时间严格验证** ⭐：每条内容的发布日期必须在周刊时间范围内，需提供验证证据
+3. **来源可信性** ⭐：优先使用官方博客和知名技术媒体，标注来源可信度
+4. **质量优于数量**：只推荐真正有价值的内容
+5. **及时验证**：定期验证链接有效性，删除失效内容
+6. **图片版权**：优先使用官方图片或开源图库（Unsplash、Pexels）
+7. **年份自动识别**：会根据 `start_date` 或 `end_date` 自动确定年份路径
 
 ## 🎯 核心理念
 
 - **自然呈现**：让内容自己说话，避免强制关联和刻意拔高
 - **多元视角**：AI、DevOps、开源可以独立呈现，不必硬性关联
 - **工程师视角**：提供实用洞察，而非宏大叙事
-- **真实性第一**：所有内容基于真实搜索，不编造数据
+- **真实性第一** ⭐：所有内容基于真实搜索，不编造数据，必须验证发布时间和来源
+- **内容自证** ⭐：每条内容都必须能证明其真实性、时效性和来源可靠性
 - **高质量优先**：只推荐真正有价值的内容
+- **宁缺毋滥** ⭐：当无法验证真实性时，选择移除而不是冒险使用
 
 ## 📖 相关文档
 
@@ -201,5 +237,6 @@ output/weekly/{YEAR}/weekly-{week_number}/
 - 周刊主流程：[generate_weekly.md](generate_weekly.md)
 - 内容搜索：[search_tech_content.md](search_tech_content.md)
 - GitHub 信息：[fetch_github_info.md](fetch_github_info.md)
+- ⭐ 内容真实性验证：[verify_content_authenticity.md](verify_content_authenticity.md)
 - 链接验证：[verify_links.md](verify_links.md)
 - 图片管理：[download_images.md](download_images.md)

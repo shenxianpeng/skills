@@ -101,11 +101,32 @@ description: 自动生成完整的攻城狮周刊，包括搜索技术内容、�
 
 ### 步骤 6：下载所有章节图片
 
-使用 **download_images** skill：
-- 为每个章节（除"行业观点"外）选择合适的图片
-- 优先使用官方图片、GitHub Social Preview、Unsplash 等
-- 图片保存路径：`output/weekly/{YEAR}/weekly-{week_number}/`（与 markdown 文件相同目录）
-- 使用相对路径引用图片（如 `![](cover.jpg)`）
+**重要：必须在生成周刊文件后立即自动下载图片，不要等待用户提醒！**
+
+使用 **download_images** skill 自动下载图片：
+
+1. **创建图片配置文件**
+   - 在周刊目录创建 `images.json` 配置文件
+   - 包含所有章节的图片 URL
+
+2. **自动下载图片**
+   - 运行下载脚本：`python3 skills/weekly/scripts/download_weekly_images.py {YEAR} {week_number} output/weekly/{YEAR}/weekly-{week_number}/images.json`
+   - 为封面、行业动态、深度阅读、效率工具、AI相关、学习资源准备图片
+   - 优先使用 Unsplash 高质量图片（如 https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200）
+   - 图片保存路径：`output/weekly/{YEAR}/weekly-{week_number}/`
+   - 使用相对路径引用图片（如 `![](featured.jpg)`）
+
+3. **图片来源优先级**
+   - 官方博客图片（如果可用）
+   - Unsplash 免费高质量图片
+   - 技术相关的抽象图片
+
+4. **常用 Unsplash 图片**
+   - 技术/数据：`https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200`
+   - 代码/编程：`https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200`
+   - 网络/云计算：`https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200`
+   - 数据分析：`https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200`
+   - AI/机器学习：`https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200`
 
 ### 步骤 7：创建周刊文件
 

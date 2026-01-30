@@ -19,25 +19,37 @@ description: 搜索 DevOps、AI、CI/CD 和 Build 领域的技术内容，包括
 根据内容类型选择合适的搜索源：
 
 **博客文章（blog）：**
-- Medium: `site:medium.com DevOps [时间]`
-- Medium AI: `site:medium.com AI engineering [时间]`
-- Dev.to: `site:dev.to DevOps [时间]`
-- Dev.to CI/CD: `site:dev.to CI/CD [时间]`
-- AWS Blog: `site:aws.amazon.com/blogs DevOps`
-- Google Cloud Blog: `site:cloud.google.com/blog AI`
-- Azure Blog: `site:devblogs.microsoft.com Azure DevOps`
-- Netflix: `Netflix TechBlog engineering`
-- Uber: `Uber Engineering blog`
-- Spotify: `site:engineering.atspotify.com`
-- GitHub: `site:github.blog engineering`
+- Medium: `site:medium.com DevOps OR AI [时间]`
+- Dev.to: `site:dev.to DevOps OR AI OR open-source [时间]`
+- AWS Blog: `site:aws.amazon.com/blogs`
+- Google Cloud Blog: `site:cloud.google.com/blog`
+- Google AI Blog: `site:ai.googleblog.com`
+- Microsoft Blog: `site:devblogs.microsoft.com`
+- GitHub Blog: `site:github.blog`
+- Meta Engineering: `site:engineering.fb.com`
+- Netflix TechBlog: `site:netflixtechblog.com`
+- Uber Engineering: `site:eng.uber.com`
+- Spotify Engineering: `site:engineering.atspotify.com`
+- Linux Foundation: `site:linuxfoundation.org`
+- CNCF Blog: `site:cncf.io/blog`
+- OpenAI Blog: `site:openai.com/blog`
+- Anthropic Blog: `site:anthropic.com/news`
 
 **行业新闻（news）：**
 - `DevOps news [时间]`
 - `AI engineering news [时间]`
 - `Kubernetes updates [时间]`
 - `cloud native news [时间]`
-- `site:techcrunch.com DevOps`
-- `site:infoq.com DevOps`
+- `site:techcrunch.com AI OR DevOps OR open-source`
+- `site:infoq.com DevOps OR AI`
+- `site:theverge.com tech OR AI`
+- `site:arstechnica.com open-source OR tech`
+- `Google AI news [时间]`
+- `Microsoft GitHub news [时间]`
+- `AWS announcements [时间]`
+- `Meta open source [时间]`
+- `Linux Foundation news [时间]`
+- `CNCF updates [时间]`
 
 **开源项目/工具（tool/project）：**
 - `GitHub trending DevOps`

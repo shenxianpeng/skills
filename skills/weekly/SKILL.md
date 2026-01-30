@@ -1,14 +1,16 @@
 ---
 name: weekly
-description: 自动化生成《攻城狮周刊》的完整工具集，涵盖技术内容搜索、GitHub 项目信息获取、链接验证、图片下载等。适用于生成 DevOps、AI、CI/CD 和 Build 领域的技术周刊。Use when generating tech weekly newsletter, searching DevOps/AI content, or managing weekly publication workflow.
+description: 自动化生成《攻城狮周刊》的完整工具集，涵盖技术内容搜索、GitHub 项目信息获取、链接验证、图片下载等。关注 AI、DevOps、开源、科技巨头动态等领域。Use when generating tech weekly newsletter, searching AI/DevOps/open-source content, or managing weekly publication workflow.
 metadata:
   author: shenxianpeng
-  version: "1.0"
+  version: "1.1"
 ---
 
 # 攻城狮周刊生成 Skills
 
 这是一套用于自动化生成《攻城狮周刊》的 GitHub Copilot Skills 集合。
+
+关注领域：AI、DevOps、开源动态、科技巨头（Google、Microsoft、AWS、Meta 等）、工程效率、CI/CD、云原生等。
 
 ## 📋 Skills 清单
 
@@ -187,10 +189,11 @@ output/weekly/{YEAR}/weekly-{week_number}/
 
 ## 🎯 核心理念
 
-- **致敬经典，但保持独特**：聚焦 DevOps/AI/CI/CD/Build 领域
-- **深度优于广度**：提供工程师视角的解读
+- **自然呈现**：让内容自己说话，避免强制关联和刻意拔高
+- **多元视角**：AI、DevOps、开源可以独立呈现，不必硬性关联
+- **工程师视角**：提供实用洞察，而非宏大叙事
+- **真实性第一**：所有内容基于真实搜索，不编造数据
 - **高质量优先**：只推荐真正有价值的内容
-- **真实性第一**：所有内容基于真实搜索
 
 ## 📖 相关文档
 

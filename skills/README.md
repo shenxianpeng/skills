@@ -6,25 +6,29 @@
 
 ```
 skills/
-└── weekly/           # 攻城狮周刊生成相关 skills
-    ├── generate_weekly.md        # 主流程：生成完整周刊
-    ├── search_tech_content.md    # 搜索技术内容
-    ├── fetch_github_info.md      # 获取 GitHub 项目信息
-    ├── verify_links.md           # 验证链接有效性
-    ├── download_images.md        # 下载和管理图片
-    ├── SKILL.md                  # Skills 总览
-    ├── scripts/                  # 辅助脚本
-    │   ├── download_image.py             # 下载单张图片
-    │   ├── download_weekly_images.py     # 批量下载图片
-    │   ├── requirements.txt              # Python 依赖
-    │   └── README.md                     # 脚本使用说明
-    └── references/               # 参考示例
-        └── week_demo.md                  # 周刊示例
+├── weekly/           # 攻城狮周刊生成相关 skills
+│   ├── generate_weekly.md        # 主流程：生成完整周刊
+│   ├── search_tech_content.md    # 搜索技术内容
+│   ├── fetch_github_info.md      # 获取 GitHub 项目信息
+│   ├── verify_links.md           # 验证链接有效性
+│   ├── download_images.md        # 下载和管理图片
+│   ├── SKILL.md                  # Skills 总览
+│   ├── scripts/                  # 辅助脚本
+│   │   ├── download_image.py             # 下载单张图片
+│   │   ├── download_weekly_images.py     # 批量下载图片
+│   │   ├── requirements.txt              # Python 依赖
+│   │   └── README.md                     # 脚本使用说明
+│   └── references/               # 参考示例
+│       └── week_demo.md                  # 周刊示例
+└── daily/            # 深度文章创作相关 skills
+    ├── write_deep_article.md            # 撰写深度思考文章
+    ├── verify_content_authenticity.md   # 验证内容真实性
+    └── SKILL.md                         # Skills 总览
 ```
 
 ## 🚀 快速开始
 
-### 生成攻城狮周刊
+### 1. 生成攻城狮周刊
 
 使用 `@workspace #file:generate_weekly.md` 来生成周刊。
 
@@ -69,21 +73,70 @@ output/weekly/2026/weekly-3/
 
 输出：`output/weekly/2027/weekly-1/index.md`
 
+### 2. 撰写深度思考文章
+
+使用 `@workspace #file:write_deep_article.md` 来创作微信公众号深度文章。
+
+#### 示例：基于热点事件创作
+
+```
+@workspace #file:write_deep_article.md
+请写一篇关于 OpenAI GPT-5 发布的深度分析文章
+- topic: OpenAI GPT-5 发布解读
+- article_type: trend_analysis
+- target_length: 2500
+```
+
+这将自动：
+1. 收集 15+ 个相关信息来源（官方、媒体、学术、社区）
+2. 交叉验证所有事实、数据和引用
+3. 撰写有深度、去 AI 化的原创文章
+4. 生成验证报告和参考资料清单
+5. 输出文章文件：`output/daily/2026-01-31-openai-gpt5-analysis.md`
+
+#### 文章类型
+
+- `trend_analysis`: 行业趋势分析
+- `case_study`: 案例深度解析
+- `tech_insight`: 技术洞察与思考
+- `comparison`: 对比分析
+- `reflection`: 反思与展望
+
+#### 更多示例
+
+技术洞察：
+```
+@workspace #file:write_deep_article.md
+写一篇关于 AI 编程助手实际影响的思考文章
+- topic: AI 编程助手的真实影响
+- article_type: tech_insight
+```
+
+案例分析：
+```
+@workspace #file:write_deep_article.md
+分析 Netflix 如何使用 AI 优化推荐系统
+- topic: Netflix AI 推荐系统
+- article_type: case_study
+```
+
 ## 📝 单独使用各个 Skill
 
-### 搜索技术内容
+### 周刊相关
+
+#### 搜索技术内容
 
 ```
 @workspace #file:search_tech_content.md 搜索最近 7 天的 DevOps 博客文章
 ```
 
-### 获取 GitHub 项目信息
+#### 获取 GitHub 项目信息
 
 ```
 @workspace #file:fetch_github_info.md 获取 kubernetes/kubernetes 的项目信息
 ```
 
-### 验证链接
+#### 验证链接
 
 ```
 @workspace #file:verify_links.md 验证以下链接的有效性：
@@ -91,11 +144,27 @@ output/weekly/2026/weekly-3/
 - https://github.com/user/repo
 ```
 
-### 下载图片
+#### 下载图片
 
 ```
 @workspace #file:download_images.md 下载图片到 output/weekly/2026/weekly-3/
 ```
+
+### 文章创作相关
+
+#### 验证内容真实性
+
+```
+@workspace #file:verify_content_authenticity.md
+验证文章中的所有事实和数据
+```
+
+这将自动：
+- 验证所有链接的可访问性
+- 确认发布日期准确性
+- 评估来源可信度（⭐ 1-5 星）
+- 进行多来源交叉验证
+- 生成详细的验证报告
 
 ## 🎯 工作流程
 

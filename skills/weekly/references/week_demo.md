@@ -87,7 +87,7 @@ Virtualization Howto 观察到一个有趣趋势：家庭实验室（Home Lab）
 
 关键观察：许多人开始用单个虚拟机运行 Kubernetes，然后在 K8s 上部署所有应用作为容器，而不是为每个服务创建单独虚拟机。这种方式既保持隔离性，又最大化资源利用率。
 
-## 效率工具
+## 开源推荐
 
 1、[6 个轻量级 Docker 容器，每周节省数小时](https://www.xda-developers.com/tiny-docker-containers-that-save-hours-every-week/)
 

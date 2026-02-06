@@ -60,15 +60,15 @@ metadata:
    - 搜索关键词：technical articles、software development、engineering practices
    - 标准：1500+ 字，有深度洞察，数据支撑
 
-3. **效率工具**（3-5 个）
-   - 时间范围：最近 30 天
-   - 搜索关键词：developer tools、productivity tools、automation
-   - 标准：实用性强，有文档，活跃维护
+3. **开源推荐**（4-6 个）
+   - 主要来源：https://github.com/trending?since=weekly（本周热门仓库）和技术博客推荐
+   - 辅助来源：Hacker News、Reddit r/selfhosted、Product Hunt
+   - 标准：Stars > 500 或增长快速，代码质量高，活跃维护，优先推荐实用工具和自托管方案
 
-4. **开源项目**（2-3 个）
-   - 主要来源：https://github.com/trending?since=weekly （本周热门仓库）
-   - 辅助来源：GitHub Trending、Hacker News 讨论
-   - 标准：Stars > 500 或增长快速，代码质量高，活跃维护
+4. **AI 相关**（1-2 个）
+   - 时间范围：最近 7 天
+   - 搜索关键词：AI tools、AI news、generative AI、machine learning
+   - 标准：有实际应用价值，技术创新性强
 
 5. **学习资源**（1-2 个）
    - 时间范围：最近 30 天
@@ -143,11 +143,11 @@ metadata:
 
 创建 `images.json` 文件，定义所有需要的图片：
 - featured.png（封面图）
-- news-1.png 到 news-N.png
-- blog-1.png 到 blog-N.png
-- tool-1.png 到 tool-N.png
-- ai-1.png 到 ai-N.png
-- resource-1.png
+- news-1.png 到 news-N.png（行业动态配图）
+- blog-1.png 到 blog-N.png（深度阅读配图）
+- opensource-1.png 到 opensource-N.png（开源推荐配图）
+- ai-1.png 到 ai-N.png（AI 相关配图）
+- resource-1.png 到 resource-N.png（学习资源配图）
 
 使用 Unsplash 高质量图片，URL 格式：
 ```
@@ -243,43 +243,43 @@ date: YYYY-MM-DD
 
 [重复 3-5 篇]
 
-## 效率工具
+## 开源推荐
 
-1、**[工具名](链接)**
+1、[**[项目名称]**](链接)
 
-![配图](tool-1.png)
+![配图](opensource-1.png)
 
-[80-120 字功能介绍，包含：
-- 主要功能
-- 技术特点
-- 适用场景
-- 开源/商业说明
+[80-150 字项目介绍，包含：
+- 项目功能和定位
+- 技术特点（开源协议、技术栈等）
+- 实用价值和适用场景
+- Stars 数量或增长趋势（如适用）
 
 格式要求：
 - 客观说明功能
-- 不夸大效果
-- 提供具体使用场景]
+- 突出开源和自托管优势
+- 提供具体使用场景
+- 不夸大效果]
 
-[重复 3-5 个]
+[重复 4-6 个]
 
-## 开源项目
+## AI 相关
 
-1、**[项目名称](链接)**
+1、[标题或产品名]
 
 ![配图](ai-1.png)
 
-[100-150 字项目介绍，包含：
-- 项目功能
-- 技术特点
+[80-120 字内容介绍，包含：
+- AI 技术或产品特点
 - 应用场景
-- 开发现状
+- 创新点或影响
 
 格式要求：
-- 突出项目特色
-- 说明技术优势
-- 提供使用参考]
+- 客观描述
+- 突出实用性
+- 说明技术价值]
 
-[重复 2-3 个]
+[重复 1-2 个]
 
 ## 学习资源
 

@@ -1,6 +1,6 @@
 ---
 title: 攻城狮周刊（第 2 期）：AI 与平台工程的深度融合，重塑开发者未来
-summary: 这里记录每周值得分享的 DevOps 与 AI 技术内容，周五发布。本杂志开源，欢迎投稿。
+summary: 这里记录每周值得分享的 DevOps 与 AI 技术内容，周五发布。
 tags: 
   - Weekly
 translate: false
@@ -11,7 +11,7 @@ date: 2026-01-09
 
 这里记录每周值得分享的 DevOps 与 AI 技术内容，周五发布。
 
-本杂志[开源](https://github.com/shenxianpeng/weekly)，欢迎[投稿](https://github.com/shenxianpeng/weekly/issues)。合作请[邮件联系](mailto:xianpeng.shen@gmail.com)（xianpeng.shen@gmail.com）。
+本杂志[开源](https://github.com/shenxianpeng/blog)。合作请[邮件联系](mailto:xianpeng.shen@gmail.com)（xianpeng.shen@gmail.com）。
 
 ## 本周封面
 
@@ -29,19 +29,19 @@ date: 2026-01-09
 
 ## 行业动态
 
-1、**CES 2026 聚焦 AI 与机器人，消费电子步入智能新纪元**
+1、CES 2026 聚焦 AI 与机器人，消费电子步入智能新纪元
 
 ![LG Robot](ces2026-robot.jpg)
 
 2026 年国际消费电子展（CES）1 月 6 日在拉斯维加斯开幕，AI 和机器人成为焦点。从 AI 家用机器人到智能家居，从显示技术到边缘计算，AI 正在成为消费电子的核心。LG 展示了"情感智能"机器人，三星、索尼等也推出了 AI 新品。NVIDIA 发布了 G-Sync Pulsar 显示技术和 DLSS 4.5，Intel 推出 Panther Lake AI 芯片，摩托罗拉发布搭载 AI 的可折叠手机 Razr Fold。
 
-2、[**平台工程市场正处于高速增长期，预计 2035 年达到约 473 亿美元规模**](https://www.cervicornconsulting.com/platform-engineering-market)
+2、[平台工程市场正处于高速增长期，预计 2035 年达到约 473 亿美元规模](https://www.cervicornconsulting.com/platform-engineering-market)
 
 ![Platform Engineering Market Size](platform-engineering-market-size.png)
 
 根据最新报告，全球平台工程服务市场将从 2025 年的 57.6 亿美元增长到 2035 年的 473.2 亿美元，复合年增长率达 23.4%。平台工程已从新兴概念发展为软件开发的核心。目前 55% 的组织已采纳平台工程实践，通过内部开发者平台（IDP）提升生产力、管理系统复杂性。
 
-3、[**OpenAI 发布 AI 在医疗健康领域的报告，强调 AI 作为医疗盟友的潜力**](https://cdn.openai.com/pdf/2cb29276-68cd-4ec6-a5f4-c01c5e7a36e9/OpenAI-AI-as-a-Healthcare-Ally-Jan-2026.pdf)
+3、[OpenAI 发布 AI 在医疗健康领域的报告，强调 AI 作为医疗盟友的潜力](https://cdn.openai.com/pdf/2cb29276-68cd-4ec6-a5f4-c01c5e7a36e9/OpenAI-AI-as-a-Healthcare-Ally-Jan-2026.pdf)
 
 ![AI as a Healthcare Ally](ai-as-a-healthcare-ally.png)
 
@@ -49,7 +49,7 @@ OpenAI 在 1 月发布了 AI 医疗健康报告，数据显示全球超过 5% �
 
 ## 深度阅读
 
-1、[**当AI编写几乎所有代码时，软件工程会发生什么？**](https://newsletter.pragmaticengineer.com/p/when-ai-writes-almost-all-code-what)
+1、[当AI编写几乎所有代码时，软件工程会发生什么？](https://newsletter.pragmaticengineer.com/p/when-ai-writes-almost-all-code-what)
 
 ![AI Writing Code](ai-assisted-coding.png)
 
@@ -57,7 +57,7 @@ Pragmatic Engineer 创始人 Gergely Orosz 的开年长文，探讨 AI 编码工
 
 对软件工程师来说，2026 年最重要的技能不再是"写代码"，而是"指导 AI 写代码"。
 
-2、[**2026年开发者工作流的25款AI编码工具**](https://devin-rosario.medium.com/25-ai-coding-tools-for-dev-workflows-in-2026-28ffc7384306)
+2、[2026年开发者工作流的25款AI编码工具](https://devin-rosario.medium.com/25-ai-coding-tools-for-dev-workflows-in-2026-28ffc7384306)
 
 ![25 Tools](25-tools.png)
 
@@ -65,13 +65,13 @@ Devin Rosario 在 Medium 上详细介绍了 25 款 AI 编码工具。文章指�
 
 重点提到了 Cursor 这个 AI 原生代码编辑器，支持跨文件编辑和重构，以及 Cody AI 结合代码搜索和 AI 理解的能力。
 
-3、[**塑造2026年的6大软件开发和DevOps趋势**](https://dzone.com/articles/software-devops-trends-shaping-2026)
+3、[塑造2026年的6大软件开发和DevOps趋势](https://dzone.com/articles/software-devops-trends-shaping-2026)
 
 ![AI DevOps Trend 2026](ai-devops-2026.png)
 
 Boris Zaikin 在 DZone 概述了 2026 年软件开发和 DevOps 的六大趋势：AI 代理、语义层、平台工程、供应链安全、可观测性和 FinOps。重点是平台工程 2.0 向 AI 就绪平台的演进，以及供应链安全成为 DevSecOps 新基线。
 
-4、[**OpenTelemetry能否拯救2026年的可观测性？**](https://thenewstack.io/can-opentelemetry-save-observability-in-2026/)
+4、[OpenTelemetry 能否拯救 2026 年的可观测性？](https://thenewstack.io/can-opentelemetry-save-observability-in-2026/)
 
 ![OpenTelemetry](opentelemetry.png)
 
@@ -79,7 +79,7 @@ The New Stack 聚焦 2025 年爆发的可观测性危机：84% 的企业被遥�
 
 AI 在其中扮演双重角色：一方面 AI 工作负载带来更多监控复杂性，另一方面 AI 技术能帮助降低数据量和成本。
 
-5、[**容器vs虚拟机:2026年家庭实验室的转变**](https://www.virtualizationhowto.com/2025/12/why-containers-will-be-more-important-than-ever-in-the-2026-home-lab/)
+5、[容器vs虚拟机:2026年家庭实验室的转变](https://www.virtualizationhowto.com/2025/12/why-containers-will-be-more-important-than-ever-in-the-2026-home-lab/)
 
 ![Containers vs VMs](homelab.png)
 
@@ -89,7 +89,7 @@ Virtualization Howto 观察到一个有趣趋势：家庭实验室（Home Lab）
 
 ## 效率工具
 
-1、**[6 个轻量级 Docker 容器，每周节省数小时](https://www.xda-developers.com/tiny-docker-containers-that-save-hours-every-week/)**
+1、[6 个轻量级 Docker 容器，每周节省数小时](https://www.xda-developers.com/tiny-docker-containers-that-save-hours-every-week/)
 
 XDA Developers 推荐的 6 个超轻量级 Docker 容器，通过自动化日常任务提升生产力。
 
@@ -97,13 +97,13 @@ XDA Developers 推荐的 6 个超轻量级 Docker 容器，通过自动化日常
 
 这些容器体积小（几十 MB）、资源占用低、启动快，适合在家庭服务器或 VPS 上长期运行。
 
-2、**[4 个 Docker 容器通过 Chrome 扩展增强功能](https://www.xda-developers.com/docker-containers-with-chrome-extensions/)**
+2、[4 个 Docker 容器通过 Chrome 扩展增强功能](https://www.xda-developers.com/docker-containers-with-chrome-extensions/)
 
 ![](docker-chrome-extensions.png)
 
 XDA Developers 介绍了 4 个自托管 Docker 容器，通过浏览器扩展实现更好的工作流集成。这些工具的优势是数据完全自主可控，避免隐私风险和订阅费用，同时保持与云服务相当的体验。
 
-3、**[Valkey 发布官方 Kubernetes Helm Chart](https://valkey.io/blog/valkey-released-helm-chart/)**
+3、[Valkey 发布官方 Kubernetes Helm Chart](https://valkey.io/blog/valkey-released-helm-chart/)
 
 ![Valkey](valkey.png)
 
@@ -117,7 +117,7 @@ n8n 是开源工作流自动化工具，类似 Zapier 和 Integromat，但更灵
 
 ## AI 相关
 
-1、**Meta 的"Conversation Focus"**
+1、Meta 的"Conversation Focus"
 
 ![Conversation Focus](conversation-focus.png)
 

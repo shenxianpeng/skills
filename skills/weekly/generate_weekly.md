@@ -66,9 +66,9 @@ metadata:
    - 标准：实用性强，有文档，活跃维护
 
 4. **开源项目**（2-3 个）
-   - 时间范围：GitHub Trending
-   - 搜索关键词：trending repositories、popular open source
-   - 标准：Stars > 500 或增长快速，代码质量高
+   - 主要来源：https://github.com/trending?since=weekly （本周热门仓库）
+   - 辅助来源：GitHub Trending、Hacker News 讨论
+   - 标准：Stars > 500 或增长快速，代码质量高，活跃维护
 
 5. **学习资源**（1-2 个）
    - 时间范围：最近 30 天

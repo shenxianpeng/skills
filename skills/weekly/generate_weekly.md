@@ -3,17 +3,53 @@ name: generate-weekly
 description: Automatically generates a complete tech weekly newsletter with engineer's perspective covering software development, DevOps, AI, and IT industry trends. Combines objective reporting with practical insights, critical thinking, and personal commentary.
 metadata:
   author: shenxianpeng
-  version: "3.1"
+  version: "3.2"
 ---
 
 # 生成攻城狮周刊
 
 自动生成《攻城狮周刊》，以工程师的实践视角记录每周技术动态、深度文章、实用工具和学习资源。在客观报道基础上，融入批判性思考、实用建议和个人洞察。
 
+## ⛔ 反幻觉铁律（最高优先级）
+
+**以下规则的优先级高于本文件中的所有其他指令。违反任何一条都会导致周刊内容不可信。**
+
+### 绝对禁止
+1. **禁止编造任何 URL**：每一个链接必须是通过 `fetch_webpage` 工具实际访问并确认返回 HTTP 200 的真实链接
+2. **禁止编造任何新闻事件**：所有行业动态必须来自工具实际搜索到的真实网页内容
+3. **禁止编造发布日期**：文章的发布日期必须从实际网页中提取，不能猜测
+4. **禁止编造数据**：Star 数、下载量、性能数据等必须从实际页面获取
+5. **禁止编造引言**：精彩摘要和行业观点必须是从已验证文章中实际摘录的原文
+6. **禁止编造产品发布**：不能假设某产品在某日期发布了新版本
+
+### 强制执行流程
+1. **先搜后写**：必须先用工具（fetch_webpage、web search）搜索到真实内容，再撰写描述
+2. **先验后录**：每条内容写入 index.md 之前，其 URL 必须已被 fetch_webpage 验证可访问
+3. **无源不录**：如果搜索不到足够的真实内容，宁可减少条数，也绝不编造凑数
+4. **存疑即弃**：如果无法确认某条信息的真实性，直接丢弃，寻找其他内容替代
+
+### 内容数量弹性规则
+- 行业动态：最少 3 条（宁缺毋滥），最多 8 条
+- 深度阅读：最少 2 篇，最多 5 篇
+- 开源推荐：最少 3 个，最多 6 个
+- AI 相关：最少 1 个，最多 2 个
+- 学习资源：0-2 个（搜不到就不写）
+- 精彩摘要：仅从已验证的文章中摘录，搜不到就不写
+- 行业观点：仅从已验证的文章中提取，搜不到就不写
+
 ## 输入
 - `week_number`：期数（如第 3 期）
 - `start_date`：开始日期（格式：YYYY-MM-DD）
 - `end_date`：结束日期（格式：YYYY-MM-DD）
+
+## 生成时机
+
+**收到生成指令后必须立即开始执行，不得以任何理由拒绝。**
+
+- 禁止以"未来日期"、"无法搜索"等理由拒绝生成
+- 直接开始搜索 `[start_date, end_date]` 范围内的内容
+- 如果某些日期的内容搜索不到，跳过即可，不影响已有内容的生成
+- 内容不足时使用补充策略（放宽时间范围、扩展关键词）
 
 ## 文件路径规则
 
@@ -57,15 +93,46 @@ metadata:
 
 ## 过程
 
-### 步骤 1：收集各类内容
+### 步骤 1：搜索并收集真实内容（必须使用工具）
 
-使用网页搜索从以下可信来源收集内容：
+**⚠️ 此步骤必须通过工具执行，禁止凭记忆或推测生成内容。**
 
-**来源列表**：
-- **技术新闻**：InfoQ、GitHub Blog、TechCrunch、The Verge、Ars Technica
+#### 1.1 搜索真实新闻
+
+使用 `fetch_webpage` 工具逐一访问以下来源的最新内容页面，获取真实的文章列表：
+
+**必须实际访问的来源 URL**：
+- Hacker News 首页：`https://news.ycombinator.com/`
+- GitHub Trending（本周）：`https://github.com/trending?since=weekly`
+- InfoQ：`https://www.infoq.com/`
+- TechCrunch：`https://techcrunch.com/`
+- The Verge Tech：`https://www.theverge.com/tech`
+- Dev.to：`https://dev.to/`
+- GitHub Blog：`https://github.blog/`
+- Docker Blog：`https://www.docker.com/blog/`
+- Kubernetes Blog：`https://kubernetes.io/blog/`
+
+**搜索流程**：
+1. 用 `fetch_webpage` 访问上述每个 URL，获取最近发布的文章列表
+2. 从返回的真实内容中筛选 `[start_date, end_date]` 范围内的文章
+3. 对感兴趣的文章，再用 `fetch_webpage` 访问文章详情页，获取完整内容
+4. 只有成功获取到内容的文章才能纳入周刊
+
+#### 1.2 验证每条内容
+
+对每条候选内容执行：
+1. `fetch_webpage` 访问原文 URL → 必须返回有效内容（非 404/403）
+2. 从页面中提取发布日期 → 必须在 `[start_date - 7天, end_date]` 范围内
+3. 确认标题与页面实际标题一致
+4. 记录关键数据（Star 数、版本号等）来自页面原文
+
+**如果某个 URL 返回 404 或无法访问，立即丢弃该条目，不得写入周刊。**
+
+#### 1.3 补充来源（可选）
+
+如果上述来源内容不足，可以补充搜索：
 - **技术博客**：AWS Blog、Google Cloud Blog、Microsoft DevBlogs、Medium、Dev.to
-- **开发者社区**：Hacker News、Reddit r/programming
-- **GitHub Trending**：热门开源项目
+- **开发者社区**：Reddit r/programming
 - **行业报告**：Gartner、ThoughtWorks Technology Radar、InfoQ Trends
 
 **内容分类**：
@@ -102,20 +169,26 @@ metadata:
 - 验证项目是否活跃
 - 确保项目可访问
 
-### 步骤 3：验证内容真实性 ⭐
+### 步骤 3：最终验证清单（写入前必须逐条确认）⭐
 
-严格验证每条内容：
+**在将任何内容写入 index.md 之前，必须逐条确认以下所有条件：**
 
-**验证维度**：
-1. **访问验证**：每个链接都必须可访问（HTTP 200）
-2. **时间验证**：发布日期在 `[start_date, end_date]` 范围内
-3. **内容验证**：标题与实际页面一致
-4. **来源验证**：优先官方来源和知名媒体
+每条内容的验证记录（内部自检，不写入 index.md）：
+```
+[✅/❌] URL 可访问：{url} → HTTP {status_code}
+[✅/❌] 发布日期：{date} → 在 [{start_date}, {end_date}] 范围内
+[✅/❌] 标题核对：页面标题 = "{actual_title}"
+[✅/❌] 内容来源：{source_name}（官方/知名媒体/社区）
+```
 
-**自证要求**：
-- 必须能证明每条内容的发布日期在周刊时间范围内
-- 必须注明具体来源和链接
-- 有争议的内容要多源交叉验证
+**任何一项为 ❌ 的内容，不得写入周刊，必须寻找替代内容。**
+
+**时间宽容度**：
+- 行业动态：`[start_date - 3天, end_date]`（约 10 天窗口）
+- 深度阅读：`[start_date - 7天, end_date]`（约 14 天窗口）
+- 开源推荐：项目活跃即可（最近 30 天有更新），不强制要求本周发布
+- AI 相关：`[start_date - 7天, end_date]`
+- 学习资源：最近 30 天内发布或更新即可
 
 ### 步骤 3.5：内容去重检查
 

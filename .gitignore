@@ -1,2 +1,5 @@
 # Ignore output
 output/*
+
+.DS_Store
+*/*.DS_Store

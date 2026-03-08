@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:news.ycombinator.com)",
+      "WebSearch",
+      "WebFetch(domain:github.blog)",
+      "WebFetch(domain:www.cnbc.com)",
+      "WebFetch(domain:techcrunch.com)",
+      "WebFetch(domain:www.nbcnews.com)",
+      "WebFetch(domain:ki-editor.org)",
+      "WebFetch(domain:cacm.acm.org)",
+      "WebFetch(domain:www.axios.com)",
+      "WebFetch(domain:www.anthropic.com)",
+      "WebFetch(domain:benjamincongdon.me)",
+      "WebFetch(domain:www.infoq.com)",
+      "WebFetch(domain:www.prnewswire.com)",
+      "Bash(python3 skills/weekly/scripts/download_weekly_images.py 2026 6 output/weekly/2026/weekly-6/images.json)",
+      "Bash(python3 .claude/skills/weekly/scripts/download_weekly_images.py 2026 6 output/weekly/2026/weekly-6/images.json)",
+      "Bash(pip3 install beautifulsoup4 requests pillow)"
+    ]
+  }
+}

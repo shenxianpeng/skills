@@ -1,5 +1,21 @@
-# Ignore output
-output/*
+# Generated outputs
+output/
 
+# macOS
 .DS_Store
-*/*.DS_Store
+**/.DS_Store
+
+# Local agent/editor settings
+.claude/settings.local.json
+.codex/
+.vscode/
+.idea/
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/

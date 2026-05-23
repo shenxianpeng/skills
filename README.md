@@ -9,6 +9,7 @@ This repository is intentionally small and explicit: each artifact should be eas
 ```text
 skills/
   github-review/        Agent skill for GitHub PR merge-readiness reviews
+  github-gap-finder/    Agent skill for finding repository gaps and creating approved GitHub issues
 ```
 
 ## Available Skills
@@ -37,6 +38,32 @@ Manual install:
 git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
 mkdir -p ~/.codex/skills
 cp -R /tmp/shenxianpeng-skills/skills/github-review ~/.codex/skills/
+```
+
+### GitHub Gap Finder
+
+Path: [`skills/github-gap-finder/`](skills/github-gap-finder/)
+
+Inspects GitHub repositories like a senior open source contributor and product manager, identifies actionable project gaps, asks for approval, then creates one GitHub issue per approved idea.
+
+Install with the `skills` CLI:
+
+```bash
+npx skills add shenxianpeng/skills --skill github-gap-finder -a codex -g
+```
+
+Install for Claude Code:
+
+```bash
+npx skills add shenxianpeng/skills --skill github-gap-finder -a claude-code -g
+```
+
+Manual install:
+
+```bash
+git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
+mkdir -p ~/.codex/skills
+cp -R /tmp/shenxianpeng-skills/skills/github-gap-finder ~/.codex/skills/
 ```
 
 ## Conventions

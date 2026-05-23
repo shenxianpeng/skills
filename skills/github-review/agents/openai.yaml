@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub Review"
+  short_description: "Review whether a GitHub pull request is ready to merge"
+  default_prompt: "Review this GitHub pull request and tell me whether it can be merged:"

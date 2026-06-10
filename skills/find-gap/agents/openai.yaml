@@ -1,0 +1,4 @@
+interface:
+  display_name: "Find Gap"
+  short_description: "Analyze project gaps vs competitors and market needs"
+  default_prompt: "Analyze this project for gaps compared to competitors and market demand:"

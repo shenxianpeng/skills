@@ -24,7 +24,7 @@ Analyzes a project (GitHub repository or product) to identify gaps vs. competito
 Install with the `skills` CLI:
 
 ```bash
-npx skills add https://github.com/shenxianpeng/skills --skill find-gap -g
+npx skills add https://github.com/shenxianpeng/skills --skill find-gap
 ```
 
 Manual install:
@@ -44,7 +44,7 @@ Reviews GitHub pull requests for merge readiness by reading PR context, tracing 
 Install with the `skills` CLI:
 
 ```bash
-npx skills add https://github.com/shenxianpeng/skills --skill github-review -g
+npx skills add https://github.com/shenxianpeng/skills --skill github-review
 ```
 
 Manual install:
@@ -64,7 +64,7 @@ Inspects GitHub repositories like a senior open source contributor and product m
 Install with the `skills` CLI:
 
 ```bash
-npx skills add https://github.com/shenxianpeng/skills --skill github-gap-finder -g
+npx skills add https://github.com/shenxianpeng/skills --skill github-gap-finder
 ```
 
 Manual install:
@@ -77,7 +77,7 @@ cp -R /tmp/shenxianpeng-skills/skills/github-gap-finder ~/.codex/skills/
 
 > **Tip:** To install all skills at once, run:
 > ```bash
-> npx skills add https://github.com/shenxianpeng/skills -g
+> npx skills add https://github.com/shenxianpeng/skills
 > ```
 
 ## Conventions

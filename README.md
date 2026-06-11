@@ -8,11 +8,38 @@ This repository is intentionally small and explicit: each artifact should be eas
 
 ```text
 skills/
-  github-review/        Agent skill for GitHub PR merge-readiness reviews
+  find-gap/             Agent skill for competitive analysis and project gap discovery
   github-gap-finder/    Agent skill for finding repository gaps and creating approved GitHub issues
+  github-review/        Agent skill for GitHub PR merge-readiness reviews
 ```
 
 ## Available Skills
+
+### Find Gap
+
+Path: [`skills/find-gap/`](skills/find-gap/)
+
+Analyzes a project (GitHub repository or product) to identify gaps vs. competitors and unmet market needs. Scores the project against objective criteria, compares it with competitors, surfaces unmet needs from real community discussions, and produces a focused gap report.
+
+Install with the `skills` CLI:
+
+```bash
+npx skills add shenxianpeng/skills --skill find-gap -a codex -g
+```
+
+Install for Claude Code:
+
+```bash
+npx skills add shenxianpeng/skills --skill find-gap -a claude-code -g
+```
+
+Manual install:
+
+```bash
+git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
+mkdir -p ~/.codex/skills
+cp -R /tmp/shenxianpeng-skills/skills/find-gap ~/.codex/skills/
+```
 
 ### GitHub Review
 
@@ -65,6 +92,11 @@ git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
 mkdir -p ~/.codex/skills
 cp -R /tmp/shenxianpeng-skills/skills/github-gap-finder ~/.codex/skills/
 ```
+
+> **Tip:** To install all skills at once, run:
+> ```bash
+> npx skills add shenxianpeng/skills -a codex -g
+> ```
 
 ## Conventions
 

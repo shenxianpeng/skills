@@ -1,0 +1,23 @@
+{
+  "skill_name": "create-pr",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我看一下这个 issue https://github.com/owner/repo/issues/42，它说首页的按钮在移动端显示有问题，帮我修一下然后提个 PR",
+      "expected_output": "The skill should: 1) Read the issue to understand the button display bug on mobile, 2) Fix the CSS/component issue, 3) Commit with a conventional commit like 'fix(homepage): fix button layout on mobile viewport', 4) Ask the user for confirmation before creating the PR, 5) Create a PR with proper description referencing the issue",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "There's a bug in the login flow where the session token isn't being refreshed properly. Can you look into it and submit a fix? The repo is github.com/my-org/my-app, issue #128.",
+      "expected_output": "The skill should: 1) Read issue #128 to understand the session token refresh bug, 2) Implement the fix in the auth logic, 3) Create a branch like 'bugfix/fix-session-token-refresh', 4) Commit with 'fix(auth): fix session token refresh flow', 5) Ask for confirmation, 6) Create PR with proper description",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Issue #5 要求给 README 加一个 API 文档的链接和安装说明，这个很简单，帮我改一下然后提 PR",
+      "expected_output": "The skill should: 1) Read issue #5, 2) Update README.md with API docs link and installation instructions, 3) Commit with 'docs(readme): add API documentation link and installation instructions', 4) Use branch like 'docs/add-api-docs-and-install-guide', 5) Ask for confirmation, 6) Create PR",
+      "files": []
+    }
+  ]
+}

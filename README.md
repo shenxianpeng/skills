@@ -8,6 +8,7 @@ This repository is intentionally small and explicit: each artifact should be eas
 
 ```text
 skills/
+  create-pr/            Agent skill for analyzing issues, implementing fixes, and creating PRs
   find-gap/             Agent skill for competitive analysis and project gap discovery
   github-gap-finder/    Agent skill for finding repository gaps and creating approved GitHub issues
   github-review/        Agent skill for GitHub PR merge-readiness reviews
@@ -53,6 +54,26 @@ Manual install:
 git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
 mkdir -p ~/.codex/skills
 cp -R /tmp/shenxianpeng-skills/skills/github-review ~/.codex/skills/
+```
+
+### Create PR
+
+Path: [`skills/create-pr/`](skills/create-pr/)
+
+Analyzes GitHub issues, implements the fix or feature, and creates a pull request. Follows Conventional Commits and Conventional Branch specifications. Handles PR templates, commits in English regardless of conversation language, and asks for confirmation before submitting the PR.
+
+Install with the `skills` CLI:
+
+```bash
+npx skills add https://github.com/shenxianpeng/skills --skill create-pr
+```
+
+Manual install:
+
+```bash
+git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
+mkdir -p ~/.codex/skills
+cp -R /tmp/shenxianpeng-skills/skills/create-pr ~/.codex/skills/
 ```
 
 ### GitHub Gap Finder

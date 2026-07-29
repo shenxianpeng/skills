@@ -1,0 +1,24 @@
+skills/create-pr/evals/evals.json
+  s_60bce32beada18::t_f2e8112aaf51ff 1-23
+README.md
+  s_60bce32beada18::t_929d1308bf1617 11,59-77
+  s_60bce32beada18::t_cdb2d6c6e3398a 78
+skills/create-pr/SKILL.md
+  s_60bce32beada18::t_39a5329cbefa3d 1-209
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "2c2aa1a19af79b6b3f8b5c2f875fa3165ec747b1",
+  "prompts": {},
+  "sessions": {
+    "s_60bce32beada18": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019faf84-ee70-7878-b273-62314e9cdb4a",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}

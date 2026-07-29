@@ -103,12 +103,12 @@ Wait for the user's response before proceeding.
    Commit message format (Conventional Commits):
    ```
    <type>(<scope>): <short summary>
-   
+
    <optional body with details>
-   
+
    <optional footer with "Closes #N" or similar>
    ```
-   
+
    Common types:
    - `fix:` — Bug fix
    - `feat:` — New feature
@@ -145,7 +145,7 @@ If yes, proceed to Phase 4.
    gh api repos/<owner/repo>/contents/.github/PULL_REQUEST_TEMPLATE.md 2>/dev/null || echo "no template"
    gh api repos/<owner/repo>/contents/.github/PULL_REQUEST_TEMPLATE/ 2>/dev/null || echo "no template dir"
    ```
-   
+
    Also check common template locations:
    - `.github/PULL_REQUEST_TEMPLATE.md`
    - `.github/PULL_REQUEST_TEMPLATE/` (directory with multiple templates)
@@ -158,19 +158,19 @@ If yes, proceed to Phase 4.
 4. **Default PR template** (use when no repo template exists):
    ```markdown
    ## Summary
-   
+
    <Brief description of the changes and why they're needed>
-   
+
    ## Changes
-   
+
    - <list of specific changes>
-   
+
    ## Related Issues
-   
+
    Closes #<issue-number>
-   
+
    ## Testing
-   
+
    <How the changes were tested>
    ```
 

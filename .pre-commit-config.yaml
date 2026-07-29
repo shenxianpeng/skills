@@ -1,0 +1,27 @@
+---
+default_stages: [pre-commit, pre-push]
+default_language_version:
+  python: python3
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-merge-conflict
+        name: Check that merge conflicts are not being committed
+      - id: detect-private-key
+        name: Detect if private key is added to the repository
+      - id: end-of-file-fixer
+        name: Make sure that there is an empty line at the end of files
+      - id: mixed-line-ending
+        name: Normalize line endings
+      - id: trailing-whitespace
+        name: Remove trailing whitespace
+
+  # Spell checker — catches typos in skill docs, README, and evals.
+  # Allowlist via `.typos.toml` at repo root.
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.30.0
+    hooks:
+      - id: typos
+        name: typos
+        args: [--force-exclude]

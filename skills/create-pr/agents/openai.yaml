@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create PR"
+  short_description: "Analyze issues, implement fixes, and create pull requests"
+  default_prompt: "Analyze this GitHub issue, implement a fix, and create a pull request:"

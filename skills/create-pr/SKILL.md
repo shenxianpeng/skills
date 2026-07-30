@@ -202,7 +202,9 @@ If yes, proceed to Phase 4.
 
 ### Multiple commits
 - Keep commits clean and logical; group related changes
-- Use `git rebase -i` to squash if needed, but ask the user first before rewriting history on a pushed branch
+- **Default to squash merge, not rebase.** Use `git merge --squash` or GitHub's squash merge option when combining commits. Preserving visible commit history helps reviewers see how the fix evolved — each intermediate commit documents a step in the resolution.
+- Do NOT use `git rebase -i` to rewrite history unless the user explicitly asks for it. Rebasing destroys the audit trail of incremental fixes.
+- If a branch contains multiple commits that should be squashed before merging, suggest a squash merge on GitHub rather than an interactive rebase.
 
 ### PR as Draft
 - By default, create PRs as ready for review

@@ -1,0 +1,23 @@
+{
+  "skill_name": "find-gap",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我分析一下 https://github.com/charmbracelet/glow 这个项目，做一个 gap analysis，从功能完整度、代码质量、文档质量、用户体验四个维度打分，同时帮我找找竞品，看看市场上用户有没有什么还没被满足的需求",
+      "expected_output": "一份 GAP_ANALYSIS_REPORT.md，包含评分表、竞品对比、市场需求洞察和行动建议",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "我给一个项目链接你帮我分析一下 gaps：https://github.com/kevinpapst/kimai2。我想知道它跟 toggl、clockify 这些比有什么差距，以及用户在论坛上都在抱怨什么。用中文输出。",
+      "expected_output": "一份中文 GAP_ANALYSIS_REPORT.md，包含与 toggl/clockify 等竞品的对比、社区反馈洞察",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I'm building a CLI tool and want to understand where the gaps are. Can you analyze https://github.com/ducaale/xh and tell me how it stacks up against similar tools? Score it, find competitors, check what the community is asking for that nobody has built yet. Output as a report.",
+      "expected_output": "GAP_ANALYSIS_REPORT.md with scoring, competitor analysis (e.g., httpie, curlie), market demand insights",
+      "files": []
+    }
+  ]
+}

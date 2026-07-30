@@ -1,0 +1,40 @@
+README.md
+  s_d95ed3d31b045e::t_8c6a47d5928f8b 1,3,5,7,9,11,14,17,20-22,26-28,34-35,37,41,43-48,50,52-57,70-74
+  s_e78537b6530ee3::t_d39db6d76f492c 75
+skills/find-gap/evals/evals.json
+  s_d95ed3d31b045e::t_1908ae3fe431d8 1-23
+LICENSE
+  s_d95ed3d31b045e::t_2e80694c795e32 1-9
+skills/github-review/SKILL.md
+  s_d95ed3d31b045e::t_894b98979fe5bb 33-42,94-104,126-128
+skills/create-pr/SKILL.md
+  s_d95ed3d31b045e::t_1dfb84e5852ec3 205-207
+.typos.toml
+  s_d95ed3d31b045e::t_34c4687710e053 1-8
+skills/create-pr/agents/openai.yaml
+  s_d95ed3d31b045e::t_ebf876df17be91 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "aa698835372aaa47d77940dbd2511ea557a2c180",
+  "prompts": {},
+  "sessions": {
+    "s_d95ed3d31b045e": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fb45c-d5f5-7ddf-8847-0dfa2030def7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    },
+    "s_e78537b6530ee3": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fb44f-c061-7e6a-9765-58612fb9a5e8",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}

@@ -30,6 +30,16 @@ Collect the PR context before reviewing code:
 
 Use the GitHub connector or `gh` CLI when available. Prefer thread-level review data when determining whether comments are resolved.
 
+### 1a. Analyze Existing Review Comments
+
+Before forming your own opinion, examine any review comments already left by human reviewers:
+
+- Read each review comment and understand the reviewer's concern or suggestion.
+- Assess whether the comment is valid: does it point to a genuine bug, design issue, quality concern, or missing test?
+- Check whether the comment has been resolved or addressed by the PR author. If a comment is marked as resolved, verify that the resolution actually addresses the concern.
+- Distinguish between non-blocking subjective opinions and comments that identify real defects.
+- Reference valuable reviewer comments in your final report — they provide useful context and strengthen your verdict.
+
 ### 2. Trace Linked Issues
 
 Find issues referenced by GitHub closing keywords in the PR title, body, commits, and comments. Include common forms such as:
@@ -81,6 +91,17 @@ Evaluate the code according to the language, framework, and repository conventio
 
 Review comments already raised by humans should be treated as part of the quality bar. A PR with unresolved blocking review comments is not merge-ready unless the comments are clearly obsolete or non-blocking.
 
+### 6. Present Findings to the User
+
+After completing the review, compile and present all findings clearly:
+
+- Summarize the key issues discovered, organized by severity (blocking vs. non-blocking).
+- For each issue, reference the specific evidence: which file, what behavior, which reviewer comment, or what issue-discussion revealed it.
+- Include positive findings too — what the PR does well, what tests are properly written, what edge cases are handled.
+- Present the findings in a structured format so you and the user have a shared understanding of what needs attention.
+
+**Important: Do not automatically fix any issues found during review.** The review skill is for evaluation only. If the user wants issues addressed, they will explicitly ask you to proceed. At that point, switch to the appropriate fix or create-pr workflow — do not assume you should fix everything you find.
+
 ## Verdict Rules
 
 Return exactly one primary verdict:
@@ -101,6 +122,9 @@ Requirement: <one-paragraph summary of the validated issue or PR goal>
 
 Evidence:
 - <what was reviewed and what supports the verdict>
+
+Findings:
+- <concise list of issues found during review, drawing from reviewer comments, linked issues, code quality assessment, and test results>
 
 Blocking issues:
 - <required fixes if cannot merge; use "None" if can merge>

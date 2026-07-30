@@ -1,8 +1,51 @@
-# AI Artifacts
+# AI Agent Skills
 
-Personal AI artifacts, agent skills, and reusable workflows.
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-This repository is intentionally small and explicit: each artifact should be easy to inspect, copy, install, or adapt without relying on hidden local state.
+A collection of reusable agent skills for AI coding assistants. Each skill helps an AI agent perform a specific task — reviewing pull requests, analyzing competitive gaps, creating PRs from issues, and more.
+
+This repository is intentionally small and explicit: each skill should be easy to inspect, copy, install, or adapt without relying on hidden local state.
+
+## Quick Install
+
+Install **all skills** at once with the `skills` CLI:
+
+```bash
+npx skills add https://github.com/shenxianpeng/skills
+```
+
+Or install a **single skill**:
+
+```bash
+npx skills add https://github.com/shenxianpeng/skills --skill create-pr
+npx skills add https://github.com/shenxianpeng/skills --skill find-gap
+npx skills add https://github.com/shenxianpeng/skills --skill github-gap-finder
+npx skills add https://github.com/shenxianpeng/skills --skill github-review
+```
+
+## Manual Install
+
+For agents or setups that don't support the `skills` CLI, clone and copy:
+
+```bash
+git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
+mkdir -p ~/.codex/skills
+
+# Install all skills
+cp -R /tmp/shenxianpeng-skills/skills/* ~/.codex/skills/
+
+# Or install a single skill (e.g., create-pr)
+cp -R /tmp/shenxianpeng-skills/skills/create-pr ~/.codex/skills/
+```
+
+## Skills Overview
+
+| Skill | Description | Install |
+|-------|-------------|---------|
+| [**Create PR**](skills/create-pr/) | Analyze GitHub issues, implement fixes or features, and create pull requests with Conventional Commits. | `npx skills add ... --skill create-pr` |
+| [**Find Gap**](skills/find-gap/) | Analyze a project against competitors and market needs. Score, compare, and produce a gap report. | `npx skills add ... --skill find-gap` |
+| [**GitHub Gap Finder**](skills/github-gap-finder/) | Inspect a repository, identify actionable gaps, get approval, then create GitHub issues. | `npx skills add ... --skill github-gap-finder` |
+| [**GitHub Review**](skills/github-review/) | Review GitHub pull requests for merge readiness — checks context, linked issues, implementation, tests, and code quality. | `npx skills add ... --skill github-review` |
 
 ## Repository Layout
 
@@ -14,93 +57,6 @@ skills/
   github-review/        Agent skill for GitHub PR merge-readiness reviews
 ```
 
-## Available Skills
-
-### Find Gap
-
-Path: [`skills/find-gap/`](skills/find-gap/)
-
-Analyzes a project (GitHub repository or product) to identify gaps vs. competitors and unmet market needs. Scores the project against objective criteria, compares it with competitors, surfaces unmet needs from real community discussions, and produces a focused gap report.
-
-Install with the `skills` CLI:
-
-```bash
-npx skills add https://github.com/shenxianpeng/skills --skill find-gap
-```
-
-Manual install:
-
-```bash
-git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
-mkdir -p ~/.codex/skills
-cp -R /tmp/shenxianpeng-skills/skills/find-gap ~/.codex/skills/
-```
-
-### GitHub Review
-
-Path: [`skills/github-review/`](skills/github-review/)
-
-Reviews GitHub pull requests for merge readiness by reading PR context, tracing linked issues or requirements, validating the implementation, checking tests and CI evidence, and assessing code quality.
-
-Install with the `skills` CLI:
-
-```bash
-npx skills add https://github.com/shenxianpeng/skills --skill github-review
-```
-
-Manual install:
-
-```bash
-git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
-mkdir -p ~/.codex/skills
-cp -R /tmp/shenxianpeng-skills/skills/github-review ~/.codex/skills/
-```
-
-### Create PR
-
-Path: [`skills/create-pr/`](skills/create-pr/)
-
-Analyzes GitHub issues, implements the fix or feature, and creates a pull request. Follows Conventional Commits and Conventional Branch specifications. Handles PR templates, commits in English regardless of conversation language, and asks for confirmation before submitting the PR.
-
-Install with the `skills` CLI:
-
-```bash
-npx skills add https://github.com/shenxianpeng/skills --skill create-pr
-```
-
-Manual install:
-
-```bash
-git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
-mkdir -p ~/.codex/skills
-cp -R /tmp/shenxianpeng-skills/skills/create-pr ~/.codex/skills/
-```
-
-### GitHub Gap Finder
-
-Path: [`skills/github-gap-finder/`](skills/github-gap-finder/)
-
-Inspects GitHub repositories like a senior open source contributor and product manager, identifies actionable project gaps, asks for approval, then creates one GitHub issue per approved idea.
-
-Install with the `skills` CLI:
-
-```bash
-npx skills add https://github.com/shenxianpeng/skills --skill github-gap-finder
-```
-
-Manual install:
-
-```bash
-git clone https://github.com/shenxianpeng/skills.git /tmp/shenxianpeng-skills
-mkdir -p ~/.codex/skills
-cp -R /tmp/shenxianpeng-skills/skills/github-gap-finder ~/.codex/skills/
-```
-
-> **Tip:** To install all skills at once, run:
-> ```bash
-> npx skills add https://github.com/shenxianpeng/skills
-> ```
-
 ## Conventions
 
 - Keep each reusable skill under `skills/<skill-name>/`.
@@ -111,4 +67,8 @@ cp -R /tmp/shenxianpeng-skills/skills/github-gap-finder ~/.codex/skills/
 
 ## Standards
 
-Skills should follow the [Agent Skills Specification](https://agentskills.io/specification) where possible, so they remain portable across compatible agents and tooling.
+Skills follow the [Agent Skills Specification](https://agentskills.io/specification) where possible, so they remain portable across compatible agents and tooling.
+
+## License
+
+This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Each skill's content may have its own license as noted in its `SKILL.md` front matter.

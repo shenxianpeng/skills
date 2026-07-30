@@ -1,0 +1,8 @@
+# Typos configuration
+# Add words to ignore here if typos falsely flags them.
+
+[files]
+extend-exclude = ["skills/**/evals/*"]
+
+[default]
+extend-ignore-re = []

@@ -1,0 +1,19 @@
+skills/create-pr/SKILL.md
+  s_d95ed3d31b045e::t_df988e784aa22b 205-209
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "1812e3f565158f0832b4a51d5897812cb7728061",
+  "prompts": {},
+  "sessions": {
+    "s_d95ed3d31b045e": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fb45c-d5f5-7ddf-8847-0dfa2030def7",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}

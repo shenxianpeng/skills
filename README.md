@@ -72,4 +72,3 @@ Skills follow the [Agent Skills Specification](https://agentskills.io/specificat
 ## License
 
 This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Each skill's content may have its own license as noted in its `SKILL.md` front matter.
-

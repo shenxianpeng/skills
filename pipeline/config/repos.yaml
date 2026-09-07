@@ -1,0 +1,34 @@
+# Repositories this pipeline maintains.
+#
+# `defaults` applies to every entry; anything set on an entry overrides it.
+# Add a repo here and the next `make scan` picks it up — that is the whole
+# onboarding step for a new project.
+
+defaults:
+  # Free-text steer handed to the scanning agent. Keep it about *this* codebase;
+  # a vague focus produces vague findings.
+  focus: "correctness, documentation accuracy, and test coverage"
+  # Labels applied to issues opened from findings in this repo.
+  labels: [pipeline]
+  # Ceiling on issues opened per run. Keeps a bad scan from flooding the tracker.
+  max_issues_per_run: 3
+
+repos:
+  - repo: shenxianpeng/skills
+    # Local checkout the agent reads. Relative paths resolve from the repo root.
+    # Leave empty to have the agent work from whatever directory it starts in.
+    path: .
+    focus: >-
+      Agent skill quality: SKILL.md front matter and trigger descriptions,
+      instructions that contradict each other, eval coverage per skill,
+      README install commands that no longer match the skill directories.
+    labels: [pipeline, skill-quality]
+    max_issues_per_run: 3
+
+  # Add more repositories the same way:
+  #
+  # - repo: shenxianpeng/some-project
+  #   path: ~/code/some-project
+  #   focus: "flaky tests and missing error handling in the CLI layer"
+  #   labels: [pipeline]
+  #   max_issues_per_run: 2

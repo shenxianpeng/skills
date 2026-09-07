@@ -2,6 +2,10 @@
 output/
 *-workspace/
 
+# Pipeline run artifacts: findings, transcripts, logs, locks
+pipeline/state/*
+!pipeline/state/.gitkeep
+
 # macOS
 .DS_Store
 **/.DS_Store

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pipeline scan findings",
+  "description": "Contract every scan run must satisfy. The agent's final ```json block is validated against this before anything is written to state.",
+  "type": "object",
+  "required": ["repo", "findings"],
+  "additionalProperties": false,
+  "properties": {
+    "repo": {
+      "type": "string",
+      "description": "owner/name of the scanned repository",
+      "pattern": "^[^/]+/[^/]+$"
+    },
+    "summary": {
+      "type": "string",
+      "description": "One paragraph on the overall state of the repository",
+      "maxLength": 2000
+    },
+    "findings": {
+      "type": "array",
+      "maxItems": 25,
+      "items": {
+        "type": "object",
+        "required": ["title", "area", "severity", "rationale", "proposal"],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Imperative one-line issue title, no trailing period",
+            "minLength": 10,
+            "maxLength": 120
+          },
+          "area": {
+            "type": "string",
+            "enum": ["functionality", "code-quality", "docs", "ux", "testing", "ci", "security", "other"]
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Why this is a real gap, grounded in what was actually read",
+            "minLength": 20,
+            "maxLength": 2000
+          },
+          "proposal": {
+            "type": "string",
+            "description": "Concrete change being proposed",
+            "minLength": 20,
+            "maxLength": 2000
+          },
+          "evidence": {
+            "type": "array",
+            "description": "Repo-relative paths, URLs, or quoted lines backing the finding",
+            "maxItems": 10,
+            "items": {"type": "string", "maxLength": 300}
+          },
+          "labels": {
+            "type": "array",
+            "maxItems": 6,
+            "items": {"type": "string", "maxLength": 50}
+          }
+        }
+      }
+    }
+  }
+}

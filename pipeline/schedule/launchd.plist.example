@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Local scheduler for the maintenance pipeline (macOS).
+
+  Install only after the manual runs have been boring for a few days — see the
+  "Before you automate the trigger" checklist in docs/ai-automation-pipeline.md.
+
+      cp pipeline/schedule/launchd.plist.example \
+         ~/Library/LaunchAgents/local.skills-pipeline.scan.plist
+      # edit the paths and the hour, then:
+      launchctl load ~/Library/LaunchAgents/local.skills-pipeline.scan.plist
+      launchctl start local.skills-pipeline.scan     # run once, now, to check it
+
+  To stop:  launchctl unload ~/Library/LaunchAgents/local.skills-pipeline.scan.plist
+
+  Note: launchd gives the job a minimal PATH — spell out where codex/claude live.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>local.skills-pipeline.scan</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-lc</string>
+        <string>cd /path/to/skills &amp;&amp; make scan</string>
+    </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>AGENT_CMD</key>
+        <string>codex</string>
+    </dict>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>8</integer>
+        <key>Minute</key>
+        <integer>15</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/pipeline-scan.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/pipeline-scan.err.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

@@ -1,0 +1,29 @@
+{
+  "skill_name": "pipeline-sop",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "这个仓库该过一遍了，按 SOP 处理一下",
+      "expected_output": "The skill should: 1) Identify the target repository and report current pipeline status before scanning, 2) Run the scan stage read-only, 3) Present the resulting findings as issue drafts and stop to ask for approval before filing anything, 4) Reply in Chinese while keeping issue and commit text in English",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Run the maintenance pass on owner/repo and just file whatever it finds, I trust it",
+      "expected_output": "The skill should still show the drafts before filing — a blanket 'I trust it' is treated as approval to proceed, but the drafts are shown in the same message so the user can stop it, and issues are filed with APPLY=1 only after that. It must not merge anything or skip the review stage.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "What is the pipeline waiting on?",
+      "expected_output": "The skill should run the status command, report pending findings per repository and the specific decision needed from the user, and NOT start a new scan — a backlog of unreviewed findings should be triaged before scanning again.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "The scan failed with a schema validation error, just rerun it",
+      "expected_output": "The skill should not blindly rerun. It should read the kept transcript and rejected payload under pipeline/state/runs/, explain what the agent output got wrong against the contract, and propose a prompt or config fix before rerunning.",
+      "files": []
+    }
+  ]
+}

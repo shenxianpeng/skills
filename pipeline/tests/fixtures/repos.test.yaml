@@ -1,0 +1,13 @@
+# Config used by the test suite. Points at this repository so the path exists,
+# but under a fake owner so test state never collides with real state.
+defaults:
+  focus: "test fixture focus"
+  labels: [pipeline]
+  max_issues_per_run: 3
+
+repos:
+  - repo: test-owner/test-repo
+    path: .
+    focus: "fixture focus for the scan stage"
+    labels: [pipeline, fixture]
+    max_issues_per_run: 2

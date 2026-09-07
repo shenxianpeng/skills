@@ -1,0 +1,21 @@
+# Local scheduler for the maintenance pipeline (Linux / WSL).
+#
+# Install only after the manual runs have been boring for a few days —
+# see the "Before you automate the trigger" checklist in
+# docs/ai-automation-pipeline.md.
+#
+#   crontab -e   # then paste the lines below, with the paths adjusted
+#
+# cron runs with a minimal environment: no shell profile, no PATH to your
+# node/python version managers, no API keys. Set them here explicitly.
+
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin
+AGENT_CMD=codex
+
+# Scan every weekday at 08:15, then leave the findings for you to triage.
+# Deliberately NOT `--apply`: the human gate is the point.
+15 8 * * 1-5 cd /path/to/skills && make scan >> /tmp/pipeline-scan.log 2>&1
+
+# Optional: a Monday-morning digest of what is waiting.
+0 9 * * 1 cd /path/to/skills && make status >> /tmp/pipeline-status.log 2>&1

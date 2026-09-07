@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pipeline SOP"
+  short_description: "Run the standard scan → issue → PR → review maintenance pass"
+  default_prompt: "Run the maintenance SOP on this repository:"

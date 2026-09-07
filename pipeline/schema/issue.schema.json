@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Enriched issue draft",
+  "description": "Contract for the optional --enrich path of the triage stage.",
+  "type": "object",
+  "required": ["valid", "title", "body"],
+  "additionalProperties": false,
+  "properties": {
+    "valid": {
+      "type": "boolean",
+      "description": "false when the finding no longer holds up against the current code"
+    },
+    "title": {"type": "string", "minLength": 10, "maxLength": 120},
+    "body": {"type": "string", "minLength": 40, "maxLength": 20000},
+    "labels": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {"type": "string", "maxLength": 50}
+    }
+  }
+}

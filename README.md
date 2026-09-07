@@ -21,6 +21,7 @@ npx skills add https://github.com/shenxianpeng/skills --skill create-pr
 npx skills add https://github.com/shenxianpeng/skills --skill find-gap
 npx skills add https://github.com/shenxianpeng/skills --skill github-gap-finder
 npx skills add https://github.com/shenxianpeng/skills --skill github-review
+npx skills add https://github.com/shenxianpeng/skills --skill pipeline-sop
 ```
 
 ## Manual Install
@@ -46,6 +47,7 @@ cp -R /tmp/shenxianpeng-skills/skills/create-pr ~/.codex/skills/
 | [**Find Gap**](skills/find-gap/) | Analyze a project against competitors and market needs. Score, compare, and produce a gap report. | `npx skills add ... --skill find-gap` |
 | [**GitHub Gap Finder**](skills/github-gap-finder/) | Inspect a repository, identify actionable gaps, get approval, then create GitHub issues. | `npx skills add ... --skill github-gap-finder` |
 | [**GitHub Review**](skills/github-review/) | Review GitHub pull requests for merge readiness — checks context, linked issues, implementation, tests, and code quality. | `npx skills add ... --skill github-review` |
+| [**Pipeline SOP**](skills/pipeline-sop/) | Run the standard maintenance pass over a repository: scan → issues → PR → review, with the human gates in the right places. | `npx skills add ... --skill pipeline-sop` |
 
 ## Repository Layout
 
@@ -55,7 +57,29 @@ skills/
   find-gap/             Agent skill for competitive analysis and project gap discovery
   github-gap-finder/    Agent skill for finding repository gaps and creating approved GitHub issues
   github-review/        Agent skill for GitHub PR merge-readiness reviews
+  pipeline-sop/         Agent skill that runs the four stages above as one maintenance pass
+pipeline/               Local automation that runs the pipeline on your own machine
+docs/                   Design notes, starting with the automation pipeline blueprint
 ```
+
+## Automation Pipeline
+
+The skills above are the four stages of a maintenance loop. [`pipeline/`](pipeline/)
+runs the first two of them on your own machine — no CI service — against every
+repository listed in `pipeline/config/repos.yaml`:
+
+```bash
+make doctor          # check the machine can run it
+make scan            # stage 1: read-only gap scan, deduplicated against state
+make triage          # stage 2: show the issues it would file (files nothing)
+make triage APPLY=1  # file them
+```
+
+It drives either Codex CLI or Claude Code (`AGENT_CMD=codex|claude`), validates
+every agent reply against a JSON schema before trusting it, and never files an
+issue or merges a PR without you saying so. The design rationale, the metrics
+worth tracking, and the checklist to clear before putting it on a scheduler are
+in [docs/ai-automation-pipeline.md](docs/ai-automation-pipeline.md).
 
 ## Conventions
 

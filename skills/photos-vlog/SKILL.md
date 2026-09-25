@@ -22,7 +22,7 @@ Talk to the user in their language (these vlogs are usually Chinese, for Douyin)
 | time window | the last 2-3 weeks, starting after the last video the user says they already posted |
 | length | 2-3 minutes per video (a little over 3:00 is fine; do not pad) |
 | format | 1080x1920, 30 fps, H.264 High + AAC, loudness -15 LUFS |
-| text | burned-in subtitles for all speech, small captions (date / scene) for clips without speech, a two-line title at the top |
+| text | burned-in subtitles for all speech, small captions (date / scene) for clips without speech; **no title overlay** (the user titles the post and makes the cover) -- add an opening title only if asked, and then it shows for the first ~3 s only |
 | audio | original sound only -- no music (the user adds music in the app) |
 | cover | none (the user makes it) |
 | output | `~/Desktop/<descriptive folder>/` with the MP4s, plus `.srt` copies in a subfolder |
@@ -120,7 +120,45 @@ ambiguous.
 
 ### 4. Write `plan.json`
 
-Format: see `references/plan-format.md`. Key editing rules:
+`render.py` renders every video in one JSON plan; relative paths resolve against the plan's folder.
+Clips are referenced by file stem, and a segment always plays the **audio** of its `src`:
+
+```json
+{
+  "sources": ["raw", "raw_extra"],
+  "words_dir": "analysis/words",
+  "workdir": "work",
+  "outdir": "~/Desktop/<folder>",
+  "srt_dir": "~/Desktop/<folder>/字幕文件srt",
+  "videos": [
+    {"name": "01_<short title>", "segments": [
+      {"src": "IMG_0101", "a": 3.1, "b": 9.6, "talk": true,
+       "subs": "第一句字幕|第二句字幕",
+       "pics": [[0, null, null], [3.2, "IMG_0120", 1.0]]},
+      {"src": "IMG_0133", "a": 0.3, "b": 14.5, "cap": "9月2日 放学后"},
+      {"src": "IMG_0140", "a": 0.0, "b": 4.3, "cap": "接放学", "cap_t": [0, 3],
+       "manual": [[0.0, 1.5, "在吃什么呢？"], [1.6, 4.3, "有苹果呀"]]}
+    ]}
+  ]
+}
+```
+
+| segment key | meaning |
+|---|---|
+| `a`, `b` | in/out seconds within `src` |
+| `talk` | speech: adds high-pass + light denoise |
+| `subs` | subtitle chunks separated by `\|`, timed automatically from the word timings inside `[a,b]` |
+| `manual` | explicit subtitles `[[t0, t1, text]]` in **source** seconds (kids' speech, no word timings) |
+| `pics` | picture timeline `[[rel_start, clip or null, clip_start]]`; `null` shows `src` itself. B-roll over narration |
+| `cap`, `cap_t` | small scene/date caption, optionally limited to `[t0, t1]` relative to the segment |
+| `vol` | audio gain (default 1.0) |
+| `fit` | `cover` (default for portrait) or `blur` (default for landscape: fitted on a blurred copy) |
+
+Video-level `title` (optional, opening seconds only) and plan-level `style` overrides
+(`sub_y`, `sub_size`, `caption_bottom`, `title_secs`, `loudness`, `crf`, ...; see `STYLE` in
+`render.py`) exist for when the user asks. Prefix names with `01_`, `02_` so `--only 02` works.
+
+Editing rules:
 
 - **Cut on word boundaries.** Use `$PY scripts/analyze.py words WORK/analysis IMG_5864 118 130`
   to see word start times; start ~0.1 s before the first word, end ~0.2 s after the last.
@@ -128,6 +166,8 @@ Format: see `references/plan-format.md`. Key editing rules:
 - **Subtitles are corrected, not raw Whisper.** Fix homophones and misheard words from context
   (`杜曹`->`吐槽`, `上饭`->`商贩`, `唱`->`上`), remove filler, keep the speaker's voice.
   One spoken phrase per chunk, <= 16 characters. Use the child's actual gender for 他/她.
+  Timing maps chunks to words by character position, so small wording fixes are fine; if you drop a
+  whole clause, split the segment around it instead.
 - Kids' speech is transcribed poorly -- only subtitle lines you are confident about (use `manual`
   timings from the segment list), otherwise rely on a caption.
 - Captions for silent/ambient clips: date + what is happening, short and warm
@@ -172,13 +212,13 @@ Reply in the user's language with:
   incomplete;
 - what still needs a human look: kids' dialogue subtitles, other children visible, anything you
   guessed (names, genders, places);
-- a reminder that there is no music/cover, and offer to change the title, trim, or re-cut.
+- a reminder that there is no music/cover, and offer to trim, re-cut or adjust subtitles.
 
 ## Layout reference (1080x1920)
 
 | element | position | why |
 |---|---|---|
-| title | y ≈ 250 | below Douyin's top tabs |
+| optional opening title | y ≈ 250 | below Douyin's top tabs |
 | caption box | bottom edge y ≈ 1040 | clear of subtitles |
 | subtitles | last line y ≈ 1290, 62 px PingFang Semibold, white + black stroke | above Douyin's author/description block (y > ~1450) |
 

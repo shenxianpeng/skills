@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render vertical short videos (1080x1920) from an edit plan (JSON). See references/plan-format.md.
+"""Render vertical short videos (1080x1920) from an edit plan (JSON). The plan format is in SKILL.md.
 
   render.py plan.json [--only 01 03] [--check] [--force]
 
@@ -10,7 +10,7 @@ Pipeline per video:
   1. every segment (or B-roll slice of a segment) -> intermediate .mov (H.264 CRF 15 + PCM audio),
      cached by content hash under <workdir>/cache, so re-renders after plan edits are fast
   2. concat intermediates (sample-exact PCM, no gaps at cuts)
-  3. subtitles/captions/title drawn with Pillow into a transparent overlay track
+  3. subtitles/captions (and an optional opening title) drawn with Pillow into a transparent overlay track
      (Homebrew ffmpeg usually lacks libass/drawtext, so no `subtitles=` filter)
   4. overlay + loudnorm -> H.264 High/AAC mp4 with faststart, plus an .srt
 
@@ -35,7 +35,8 @@ W, H, FPS = 1080, 1920, 30
 PUNCT = re.compile(r"[\s,，。.!！?？、:：;；\"“”'‘’()（）…·\-|]")
 
 STYLE = dict(
-    title_y=250,          # top title (Douyin's top tabs cover ~0-200 px)
+    title_secs=3,         # optional opening title: only shown for the first few seconds
+    title_y=250,          # below Douyin's top tabs (~0-200 px)
     title_size=56,
     title_color=(255, 226, 90),
     caption_bottom=1040,  # bottom edge of the scene-caption box
@@ -369,7 +370,8 @@ def build(plan, v, srcs, words, st, workdir, outdir, srtdir):
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", base],
                    check=True)
     # overlay track: one PNG per distinct on-screen state, stitched with the concat demuxer
-    title = v.get("title") if st.get("show_title", True) else None
+    if v.get("title"):
+        events.append(("title", 0.0, min(total, st["title_secs"]), v["title"]))
     cuts = sorted({0.0, total} | {fr(e[1]) for e in events} | {fr(e[2]) for e in events})
     cuts = [c for c in cuts if 0 <= c <= total]
     ol = os.path.join(work, "ovl"); os.makedirs(ol, exist_ok=True)
@@ -379,10 +381,10 @@ def build(plan, v, srcs, words, st, workdir, outdir, srtdir):
     for c0, c1 in zip(cuts, cuts[1:]):
         mid = (c0 + c1) / 2
         act = [e for e in events if e[1] <= mid < e[2]]
-        key = (tuple(e[3] for e in act if e[0] == "sub"), tuple(e[3] for e in act if e[0] == "cap"))
+        key = tuple(tuple(e[3] for e in act if e[0] == k) for k in ("sub", "cap", "title"))
         if key not in cache:
             p = os.path.join(ol, f"l{len(cache):04d}.png")
-            render_layer(p, list(key[0]), list(key[1]), title, st)
+            render_layer(p, list(key[0]), list(key[1]), key[2][0] if key[2] else None, st)
             cache[key] = p
         lines.append(f"file '{cache[key]}'\nduration {c1 - c0:.4f}\n")
     lines.append(f"file '{cache[key]}'\n")

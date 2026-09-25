@@ -21,6 +21,7 @@ npx skills add https://github.com/shenxianpeng/skills --skill create-pr
 npx skills add https://github.com/shenxianpeng/skills --skill find-gap
 npx skills add https://github.com/shenxianpeng/skills --skill github-gap-finder
 npx skills add https://github.com/shenxianpeng/skills --skill github-review
+npx skills add https://github.com/shenxianpeng/skills --skill photos-vlog
 npx skills add https://github.com/shenxianpeng/skills --skill pipeline-sop
 ```
 
@@ -47,6 +48,7 @@ cp -R /tmp/shenxianpeng-skills/skills/create-pr ~/.codex/skills/
 | [**Find Gap**](skills/find-gap/) | Analyze a project against competitors and market needs. Score, compare, and produce a gap report. | `npx skills add ... --skill find-gap` |
 | [**GitHub Gap Finder**](skills/github-gap-finder/) | Inspect a repository, identify actionable gaps, get approval, then create GitHub issues. | `npx skills add ... --skill github-gap-finder` |
 | [**GitHub Review**](skills/github-review/) | Review GitHub pull requests for merge readiness — checks context, linked issues, implementation, tests, and code quality. | `npx skills add ... --skill github-review` |
+| [**Photos Vlog**](skills/photos-vlog/) | Turn recent clips from the macOS Photos library into 2-3 minute vertical short videos (Douyin/TikTok) with burned-in subtitles. | `npx skills add ... --skill photos-vlog` |
 | [**Pipeline SOP**](skills/pipeline-sop/) | Run the standard maintenance pass over a repository: scan → issues → PR → review, with the human gates in the right places. | `npx skills add ... --skill pipeline-sop` |
 
 ## Repository Layout
@@ -57,6 +59,7 @@ skills/
   find-gap/             Agent skill for competitive analysis and project gap discovery
   github-gap-finder/    Agent skill for finding repository gaps and creating approved GitHub issues
   github-review/        Agent skill for GitHub PR merge-readiness reviews
+  photos-vlog/          Agent skill (+ Python/ffmpeg scripts) for editing Photos clips into subtitled short videos
   pipeline-sop/         Agent skill that runs the four stages above as one maintenance pass
 pipeline/               Local automation that runs the pipeline on your own machine
 docs/                   Design notes, starting with the automation pipeline blueprint

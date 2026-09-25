@@ -1,0 +1,4 @@
+interface:
+  display_name: "Photos Vlog"
+  short_description: "Turn recent Photos-library clips into subtitled vertical short videos"
+  default_prompt: "Collect the videos I recorded in the last few weeks from my Photos library and edit them into 2-3 minute vertical vlogs with subtitles:"

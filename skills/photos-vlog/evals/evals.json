@@ -1,0 +1,23 @@
+{
+  "skill_name": "photos-vlog",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我电脑上的个人相册里有一些孩子最近上学的视频，比如幼儿园里的视频。9月开学那天发过一次抖音，之后录的都没剪。你帮我把最近两三周的视频收集一下，根据内容做成几段2到3分钟的抖音视频，配上字幕，放到桌面就行，封面我自己弄。",
+      "expected_output": "Uses photos_export.py to list and export clips after the first school day, reports the newest date in the library, runs analyze.py and reviews contact sheets + transcripts, excludes clips with undressed children and junk footage, plans 2-5 themed videos (e.g. talking-head topics with B-roll, daily routine, weekend outing), writes plan.json with corrected Chinese subtitles, passes render.py --check, renders 1080x1920 MP4s of roughly 2-3 minutes into a Desktop folder with SRT copies, runs qa.py, and reports a table of outputs plus what was left out.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Can you grab the videos from our trip last weekend (they're in Photos) and make one TikTok-style vertical video, about 2 minutes, with English subtitles for whatever we say? No music needed.",
+      "expected_output": "Exports only last weekend's clips, transcribes with --lang en, builds a single chronological video of ~2 minutes with English subtitles and scene captions for silent clips, landscape clips placed on a blurred background, no music, output to the Desktop, and a short report.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "上次那个幼儿园开学典礼的视频字幕位置太低了，被抖音的文字挡住了，而且顶部标题不要了，帮我重新导出一下",
+      "expected_output": "Reuses the existing plan.json and cached pieces, sets style.show_title=false and raises sub_y (and caption_bottom if needed), re-renders only the affected video with --only, checks the new QA grid, and reports the updated file.",
+      "files": []
+    }
+  ]
+}

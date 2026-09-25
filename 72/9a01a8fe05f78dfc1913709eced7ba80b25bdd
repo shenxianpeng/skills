@@ -1,0 +1,42 @@
+skills/photos-vlog/scripts/analyze.py
+  s_945e81c90c176a::t_48ba30e6d71404 1-263
+skills/photos-vlog/scripts/setup.sh
+  s_945e81c90c176a::t_1f4c6d452211fc 1-46
+skills/photos-vlog/scripts/photos_export.py
+  s_945e81c90c176a::t_90ea9160bf21da 1-39,41-140
+  s_945e81c90c176a::t_a9f485becb460c 40
+  s_945e81c90c176a::t_3fd7cce07cb6a6 141-152
+skills/photos-vlog/scripts/render.py
+  s_945e81c90c176a::t_0cd832996d39a4 1-438
+  s_945e81c90c176a::t_72aa25682d94a4 439-441
+skills/photos-vlog/agents/openai.yaml
+  s_945e81c90c176a::t_47da5ecf5194bc 1-4
+skills/photos-vlog/SKILL.md
+  s_945e81c90c176a::t_ec08aeed429a7f 1-62,64-189
+  s_945e81c90c176a::t_6d82cc02091bf8 63
+  s_945e81c90c176a::t_306a8516bd68ce 190-199
+skills/photos-vlog/evals/evals.json
+  s_945e81c90c176a::t_3aa067d47273d5 1-23
+skills/photos-vlog/scripts/qa.py
+  s_945e81c90c176a::t_adc2dd5c24bbb3 1-68
+skills/photos-vlog/references/plan-format.md
+  s_945e81c90c176a::t_9e94175c646563 1-76
+README.md
+  s_945e81c90c176a::t_b19399ab3e03aa 24,51,62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "729a01a8fe05f78dfc1913709eced7ba80b25bdd",
+  "prompts": {},
+  "sessions": {
+    "s_945e81c90c176a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "94cd0276-e957-4152-b14c-1a2ef9d23fd1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}

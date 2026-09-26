@@ -35,7 +35,7 @@ W, H, FPS = 1080, 1920, 30
 PUNCT = re.compile(r"[\s,，。.!！?？、:：;；\"“”'‘’()（）…·\-|]")
 
 STYLE = dict(
-    title_secs=3,         # optional opening title: only shown for the first few seconds
+    title_secs=10,        # opening title: only shown for the first 10 seconds
     title_y=250,          # below Douyin's top tabs (~0-200 px)
     title_size=56,
     title_color=(255, 226, 90),

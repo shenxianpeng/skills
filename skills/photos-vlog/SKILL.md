@@ -22,7 +22,7 @@ Talk to the user in their language (these vlogs are usually Chinese, for Douyin)
 | time window | the last 2-3 weeks, starting after the last video the user says they already posted |
 | length | 2-3 minutes per video (a little over 3:00 is fine; do not pad) |
 | format | 1080x1920, 30 fps, H.264 High + AAC, loudness -15 LUFS |
-| text | burned-in subtitles for all speech, small captions (date / scene) for clips without speech; **no title overlay** (the user titles the post and makes the cover) -- add an opening title only if asked, and then it shows for the first ~3 s only |
+| text | burned-in subtitles for all speech, small captions (date / scene) for clips without speech, and a short two-line title shown **only for the first 10 s** (never for the whole video) |
 | audio | original sound only -- no music (the user adds music in the app) |
 | cover | none (the user makes it) |
 | output | `~/Desktop/<descriptive folder>/` with the MP4s, plus `.srt` copies in a subfolder |
@@ -131,7 +131,7 @@ Clips are referenced by file stem, and a segment always plays the **audio** of i
   "outdir": "~/Desktop/<folder>",
   "srt_dir": "~/Desktop/<folder>/字幕文件srt",
   "videos": [
-    {"name": "01_<short title>", "segments": [
+    {"name": "01_<short title>", "title": "第一行\n第二行", "segments": [
       {"src": "IMG_0101", "a": 3.1, "b": 9.6, "talk": true,
        "subs": "第一句字幕|第二句字幕",
        "pics": [[0, null, null], [3.2, "IMG_0120", 1.0]]},
@@ -154,9 +154,10 @@ Clips are referenced by file stem, and a segment always plays the **audio** of i
 | `vol` | audio gain (default 1.0) |
 | `fit` | `cover` (default for portrait) or `blur` (default for landscape: fitted on a blurred copy) |
 
-Video-level `title` (optional, opening seconds only) and plan-level `style` overrides
+Give every video a `title` (two short lines joined by `\n`, e.g. `"立陶宛幼儿园\n开学典礼长啥样？"`);
+it is drawn only for the first `title_secs` (10 s). Plan-level `style` overrides
 (`sub_y`, `sub_size`, `caption_bottom`, `title_secs`, `loudness`, `crf`, ...; see `STYLE` in
-`render.py`) exist for when the user asks. Prefix names with `01_`, `02_` so `--only 02` works.
+`render.py`) exist for when the user asks for a different look. Prefix names with `01_`, `02_` so `--only 02` works.
 
 Editing rules:
 
@@ -218,7 +219,7 @@ Reply in the user's language with:
 
 | element | position | why |
 |---|---|---|
-| optional opening title | y ≈ 250 | below Douyin's top tabs |
+| opening title (first 10 s) | y ≈ 250 | below Douyin's top tabs |
 | caption box | bottom edge y ≈ 1040 | clear of subtitles |
 | subtitles | last line y ≈ 1290, 62 px PingFang Semibold, white + black stroke | above Douyin's author/description block (y > ~1450) |
 

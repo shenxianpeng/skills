@@ -1,0 +1,21 @@
+skills/photos-vlog/SKILL.md
+  s_945e81c90c176a::t_f3d1eba49a4732 25,134,157-158,160,222
+skills/photos-vlog/scripts/render.py
+  s_945e81c90c176a::t_e10418aba4c9de 38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "d606ae4f276dd487e7912cf79ac852abb573e29a",
+  "prompts": {},
+  "sessions": {
+    "s_945e81c90c176a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "94cd0276-e957-4152-b14c-1a2ef9d23fd1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}

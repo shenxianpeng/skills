@@ -1,0 +1,19 @@
+.github/workflows/pre-commit.yml
+  s_6535937731a8c8::t_e8fd260a4852d6 6-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5d5a21fb617d65a4118babc513d20df186838138",
+  "prompts": {},
+  "sessions": {
+    "s_6535937731a8c8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7be933fd-3555-4179-bf89-3d88091b3193",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
